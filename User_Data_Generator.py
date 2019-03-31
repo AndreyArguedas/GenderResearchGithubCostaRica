@@ -27,14 +27,16 @@ password = input("Password: ")
 
 API_calls = 0
 data = []
-for i in range(1, 3):
+for user in users:
     
-    myResponse = requests.get(users[i],auth=(userName , password), verify=True)
+    myResponse = requests.get(user ,auth=(userName , password), verify=True)
 
     if(myResponse.ok):
         userData = json.loads(myResponse.content)
         data.append([userData["id"], userData['login'], userData['html_url'], userData['name'], userData['email']])
-        if(len(data) == 2):
+        API_calls += 1
+        print(API_calls)
+        if(API_calls == len(users)):
             generate_csv_from_dict(data)
     else:
         # If response code is not ok (200), print the resulting http error code with description
