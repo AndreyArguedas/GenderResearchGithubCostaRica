@@ -13,7 +13,7 @@ import os
 
 urlForUserGender = "https://gender-api.com/get?name=" # In name we put the user name
 country = "&country=CR"
-keyInfo = "&key=xXpsAhbmCofwvvjQTu"
+keyInfo = "&key=YOUR_KEY"
 
 os.chdir("/Users/Andrey/Desktop/GenderResearchGithubCostaRica/data")
 datos_est = pd.read_csv('CostaRicanUsersInfo.csv')
