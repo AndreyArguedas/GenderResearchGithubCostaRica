@@ -15,10 +15,6 @@ urlForUserGender = "https://gender-api.com/get?name=" # In name we put the user 
 country = "&country=CR"
 keyInfo = "&key=YOUR_KEY"
 
-usersGenders = []
-API_calls = 0
-
-
 os.chdir("/Users/Andrey/Desktop/GenderResearchGithubCostaRica/data")
 datos_est = pd.read_csv('CostaRicanUsersInfo.csv')
 
@@ -50,7 +46,7 @@ genders = [] #Retrieve the genders
 accuracy = [] #Retrieve accuracy
 API_CALLS = 0
 
-for i in range (0, len(first_names)):
+for i in range (499, 1000):
     newURL = urlForUserGender + datos_est.loc[i ,'first_name'] + country + keyInfo
     print(newURL)
     
@@ -69,8 +65,9 @@ for i in range (0, len(first_names)):
 
 print("Termine de obtener data")
 
-#fillMissedData(genders, len(first_names))
-#fillMissedData(accuracy, len(first_names))
+fillMissedData(genders, len(first_names))
+fillMissedData(accuracy, len(first_names))
+
 print(genders)
 print(accuracy)
 
